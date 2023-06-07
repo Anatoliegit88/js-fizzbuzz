@@ -1,22 +1,31 @@
+const row = document.querySelector(".row");
+//CICLO FOR
+
 for (let i = 1; i <= 100; i++) {
-  let multiplo = "";
-  const numberitem = document.getElementById("id-number");
-  const item = document.createElement("button");
+  let result = i;
+  let boxColor = "";
   if (i % 3 === 0 && i % 5 === 0) {
-    multiplo = "FizzBuzz";
+    result = "FizzBuzz";
+    boxColor = "bg-black";
   } else if (i % 3 === 0) {
-    multiplo = "Fizz";
+    result = "Fizz";
+    boxColor = "bg-yellow";
+  } else if (i % 5 === 0) {
+    result = "Buzz";
+    boxColor = "bg-red";
   } else {
-    if (i % 5 === 0) {
-      multiplo = "Buzz";
-    } else {
-      console.log(i);
-      item.innerHTML = `${i}`;
-      numberitem.append(item);
-    }
+    result = i;
   }
-  console.log(multiplo);
-  item.innerHTML = `${multiplo}`;
-  numberitem.append(item);
+
+  // OUTPUT
+  const box = document.createElement("div");
+  box.innerHTML = result;
+  box.classList.add("box");
+  if (boxColor !== "") {
+    box.classList.add(boxColor);
+  }
+  row.append(box);
+
+  // const element = `<div class="box" ${boxColor}>${result}</div>`;
+  // row.innerHTML += element;
 }
-// BONUS
